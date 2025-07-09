@@ -1,0 +1,42 @@
+/* input.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    font-family: 'Inter', 'Pretendard', sans-serif;
+    color: #475569; /* 라이트모드 기본 글자색 */
+    transition: background-color 0.3s ease-in-out;
+}
+
+/* 다크모드일 때만 적용될 스타일들 */
+.dark body {
+    color: #E2E8F0; /* 다크모드 기본 글자색 */
+}
+
+.dark::before,
+.dark::after {
+    content: '';
+    position: fixed;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    z-index: -1;
+    filter: blur(100px);
+}
+
+.dark::before {
+    background-image: radial-gradient(circle, hsla(278, 55%, 22%, 0.4), transparent 70%);
+    top: 10%;
+    left: 10%;
+}
+
+.dark::after {
+    background-image: radial-gradient(circle, hsla(198, 55%, 22%, 0.3), transparent 70%);
+    bottom: 10%;
+    right: 10%;
+}
+
+.loupe-cursor {
+    cursor: crosshair;
+}
